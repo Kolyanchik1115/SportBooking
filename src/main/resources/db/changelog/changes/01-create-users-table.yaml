@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-users-table
+      author: sprat
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: full_name
+                  type: varchar(255)
+              - column:
+                  name: date_of_birth
+                  type: date
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: avatar
+                  type: varchar(255)
+              - column:
+                  name: is_activated
+                  type: boolean
+                  defaultValueBoolean: false
+              - column:
+                  name: is_deleted
+                  type: boolean
+                  defaultValueBoolean: false

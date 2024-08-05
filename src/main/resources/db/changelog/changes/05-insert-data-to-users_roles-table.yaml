@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-data-to-users_roles-table
+      author: sprat
+      changes:
+        - insert:
+            tableName: users_roles
+            columns:
+              - column: {name: role_id, value: "1"}
+              - column: {name: user_id, value: "1"}
