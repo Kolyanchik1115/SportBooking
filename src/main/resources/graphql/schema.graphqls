@@ -1,18 +1,59 @@
+#mutations
+type Mutation {
+    login(loginInput: UserLoginRequestDto!): UserLoginResponseDto!
+    register(registerInput: UserRegistrationRequestDto!): UserResponseDto!
+}
+
+#queries
+type Query {
+    _empty: String
+}
+
+#models
 type User {
-    activationLink: String
-    avatar: String
-    bookings: [Booking!]
-    createdAt: DateTime
-    dateOfBirth: DateTime
-    email: String
-    facebookId: String
-    facilities: [Facility!]
-    fullname: String
-    googleId: String
-    id: Float
-    isActivated: Boolean
+    id: ID!
+    email: String!
+    fullName: String
+    createAt: String
+    updatedAt: String
     password: String
+    dateOfBirth: String
+    avatar: String
+    isActivated: Boolean!
     roles: [Role!]!
-    updatedAt: DateTime
-    userOwner: UserOwner
+    isDeleted: Boolean!
+}
+
+type Role {
+    id: ID!
+    name: RoleName!
+}
+
+#dtos
+input UserLoginRequestDto {
+    email: String!
+    password: String!
+}
+
+type UserLoginResponseDto {
+    user: User
+    accessToken: String!
+}
+
+input UserRegistrationRequestDto {
+    email: String!
+    password: String!
+    confirmPassword: String!
+}
+
+type UserResponseDto {
+    user: User
+    accessToken: String!
+}
+
+#enums
+enum RoleName {
+    USER
+    OWNER
+    ADMIN
 }

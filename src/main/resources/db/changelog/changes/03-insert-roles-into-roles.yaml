@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-roles-into-roles
+      author: sprat
+      changes:
+        - insert:
+            tableName: roles
+            columns:
+              - column: { name: name, value: "USER" }
+        - insert:
+            tableName: roles
+            columns:
+              - column: { name: name, value: "ADMIN" }
+        - insert:
+            tableName: roles
+            columns:
+              - column: { name: name, value: "OWNER" }

@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-users
+      author: sprat
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column: {name: email, value: "test1@gmail.com"}
+              - column: {name: password, value: "$2a$10$MUsEs68SIsANIXaynGq.KeRX0.snAdoZlsKCJi1ZAS.hZpKW6dKme"}
+              - column: {name: full_name, value: "Test User"}
+              - column: {name: date_of_birth, value: "2001-02-08"}
+              - column: {name: is_activated, valueBoolean: "true"}

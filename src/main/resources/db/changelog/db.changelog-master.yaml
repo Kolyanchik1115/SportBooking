@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/01-create-users-table.yaml
+  - include:
+      file: db/changelog/changes/02-create-roles-table-and-insert-roles.yaml
+  - include:
+      file: db/changelog/changes/03-insert-roles-into-roles.yaml
+  - include:
+      file: db/changelog/changes/04-create-users_roles-table.yaml
+  - include:
+      file: db/changelog/changes/05-insert-data-to-users_roles-table.yaml
+  - include:
+      file: db/changelog/changes/06-add-constraints-to-users_roles-columns.yaml
+  - include:
+      file: db/changelog/changes/07-insert-users.yaml

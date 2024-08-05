@@ -9,7 +9,7 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.application</groupId>
-	<artifactId>SportBooking</artifactId>
+	<artifactId>sportbooking</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SportBooking</name>
 	<description>SportBooking</description>

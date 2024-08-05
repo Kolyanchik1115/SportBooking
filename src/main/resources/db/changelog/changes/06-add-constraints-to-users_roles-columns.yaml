@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-constraints-to-users_roles-columns
+      author: sprat
+      changes:
+        - addNotNullConstraint:
+            columnName: user_id
+            constraintName: users_roles_user_id_NN
+            columnDataType: bigint
+            tableName: users_roles
+        - addNotNullConstraint:
+            columnName: role_id
+            constraintName: users_roles_role_id_NN
+            columnDataType: bigint
+            tableName: users_roles
+        - addPrimaryKey:
+            columnNames: user_id, role_id
+            tableName: users_roles
