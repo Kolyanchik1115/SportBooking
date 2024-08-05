@@ -1,0 +1,18 @@
+type User {
+    activationLink: String
+    avatar: String
+    bookings: [Booking!]
+    createdAt: DateTime
+    dateOfBirth: DateTime
+    email: String
+    facebookId: String
+    facilities: [Facility!]
+    fullname: String
+    googleId: String
+    id: Float
+    isActivated: Boolean
+    password: String
+    roles: [Role!]!
+    updatedAt: DateTime
+    userOwner: UserOwner
+}
