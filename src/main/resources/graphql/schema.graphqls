@@ -2,11 +2,13 @@
 type Mutation {
     login(loginInput: UserLoginRequestDto!): UserLoginResponseDto!
     register(registerInput: UserRegistrationRequestDto!): UserResponseDto!
+    updateProfile(profileInput: UpdateProfileRequestDto!): User!
+
 }
 
 #queries
 type Query {
-    _empty: String
+    getProfile: User!
 }
 
 #models
@@ -15,13 +17,11 @@ type User {
     email: String!
     fullName: String
     createAt: String
-    updatedAt: String
-    password: String
+    updateAt: String
     dateOfBirth: String
     avatar: String
     isActivated: Boolean!
     roles: [Role!]!
-    isDeleted: Boolean!
 }
 
 type Role {
@@ -36,7 +36,7 @@ input UserLoginRequestDto {
 }
 
 type UserLoginResponseDto {
-    user: User
+    user: User!
     accessToken: String!
 }
 
@@ -47,8 +47,13 @@ input UserRegistrationRequestDto {
 }
 
 type UserResponseDto {
-    user: User
+    user: User!
     accessToken: String!
+}
+
+input UpdateProfileRequestDto {
+    dateOfBirth: String
+    fullName: String
 }
 
 #enums

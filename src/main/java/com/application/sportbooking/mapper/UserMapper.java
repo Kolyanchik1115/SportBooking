@@ -9,6 +9,7 @@ import org.mapstruct.Mapping;
 
 @Mapper(config = MapperConfig.class)
 public interface UserMapper {
+
     @Mapping(target = "accessToken", source = "token")
     UserResponseDto toDto(User user, String token);
 

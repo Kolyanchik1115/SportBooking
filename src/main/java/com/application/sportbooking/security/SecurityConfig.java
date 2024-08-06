@@ -21,7 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableMethodSecurity
 public class SecurityConfig {
     private static final String[] AUTH_WHITELIST = {
-            "/graphql/**",
+            "/graphql",
             "/error",
             "/swagger-ui/**"
     };

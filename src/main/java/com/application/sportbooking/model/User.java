@@ -42,10 +42,10 @@ public class User implements UserDetails {
     private LocalDate dateOfBirth;
 
     @CreationTimestamp
-    private LocalDateTime createdAt;
+    private LocalDateTime createAt;
 
     @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    private LocalDateTime updateAt;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
