@@ -2,8 +2,7 @@
 type Mutation {
     login(loginInput: UserLoginRequestDto!): UserLoginResponseDto!
     register(registerInput: UserRegistrationRequestDto!): UserResponseDto!
-    updateProfile(profileInput: UpdateProfileRequestDto!): User!
-
+    updateProfile(profileInput: UpdateProfileRequestDto!, avatar: Upload): User!
 }
 
 #queries
