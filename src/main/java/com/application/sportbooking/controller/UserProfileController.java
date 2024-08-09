@@ -5,13 +5,14 @@ import com.application.sportbooking.model.User;
 import com.application.sportbooking.service.profile.ProfileService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
+import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequiredArgsConstructor
@@ -30,9 +31,9 @@ public class UserProfileController {
     @Operation(summary = "Update profile", description = "Update user profile")
     public User updateProfile(
             Authentication authentication,
-            @Argument("profileInput") @Valid UpdateProfileRequestDto requestDto) {
+            @Argument("avatar") MultipartFile avatar,
+            @Argument("profileInput") UpdateProfileRequestDto profileInput) throws IOException {
         User userDetails = (User) authentication.getPrincipal();
-        return profileService.updateUserProfile(userDetails.getId(), requestDto);
+        return profileService.updateProfile(userDetails.getId(), avatar, profileInput);
     }
-
 }
