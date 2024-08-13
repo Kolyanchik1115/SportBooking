@@ -1,6 +1,6 @@
 package com.application.sportbooking.controller;
 
-import com.application.sportbooking.dto.profile.UpdateProfileRequestDto;
+import com.application.sportbooking.dto.profile.update.UpdateProfileRequestDto;
 import com.application.sportbooking.model.User;
 import com.application.sportbooking.service.profile.ProfileService;
 import io.swagger.v3.oas.annotations.Operation;

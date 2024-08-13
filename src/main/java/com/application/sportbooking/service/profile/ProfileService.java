@@ -1,6 +1,6 @@
 package com.application.sportbooking.service.profile;
 
-import com.application.sportbooking.dto.profile.UpdateProfileRequestDto;
+import com.application.sportbooking.dto.profile.update.UpdateProfileRequestDto;
 import com.application.sportbooking.model.User;
 import java.io.IOException;
 import org.springframework.web.multipart.MultipartFile;
