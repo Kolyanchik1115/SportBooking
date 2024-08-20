@@ -3,10 +3,9 @@ package com.application.sportbooking.dto.facility.update;
 import com.application.sportbooking.model.Facility;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import java.util.Set;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
-
-import java.util.Set;
 
 @Data
 public class UpdateFacilityRequestDto {

@@ -1,6 +1,6 @@
 package com.application.sportbooking.util.validation;
 
-import com.application.sportbooking.dto.user.registration.UserRegistrationRequestDto;
+import com.application.sportbooking.dto.auth.registration.UserRegistrationRequestDto;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import java.util.Objects;

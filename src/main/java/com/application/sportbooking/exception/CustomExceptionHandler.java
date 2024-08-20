@@ -20,11 +20,13 @@ public class CustomExceptionHandler extends DataFetcherExceptionResolverAdapter 
         if (ex instanceof EntityNotFoundException) {
             return createError(ErrorType.NOT_FOUND, List.of(ex.getMessage()), env);
         } else if (ex instanceof RegistrationException) {
-            return createError(ErrorType.BAD_REQUEST,List.of(ex.getMessage()), env);
+            return createError(ErrorType.BAD_REQUEST, List.of(ex.getMessage()), env);
         } else if (ex instanceof UnauthorizedException) {
             return createError(ErrorType.UNAUTHORIZED, List.of(ex.getMessage()), env);
         } else if (ex instanceof RequestTokenException) {
             return createError(ErrorType.BAD_REQUEST, List.of(ex.getMessage()), env);
+        } else if (ex instanceof FileStorageException) {
+            return createError(ErrorType.INTERNAL_ERROR, List.of(ex.getMessage()), env);
         } else if (ex instanceof ConstraintViolationException) {
             List<String> messages = ((ConstraintViolationException) ex)
                     .getConstraintViolations().stream()

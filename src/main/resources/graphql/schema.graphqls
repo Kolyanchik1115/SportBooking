@@ -6,11 +6,19 @@ type Mutation {
     createFacility(facilityInput: CreateFacilityRequestDto!): CreateFacilityResponseDto!
     updateFacility(facilityInput: UpdateFacilityRequestDto!): UpdateFacilityResponseDto!
     deleteFacility(id: ID!): Boolean!
+    uploadFacilityImages(facilityId: ID!, images: [Upload]): [UpdateFacilityImageDto!]!
+    addFavorite(facilityId: ID!): Boolean!
+    removeFavorite(facilityId: ID!): Boolean!
 }
 
 #queries
 type Query {
     getProfile: User!
+    findAll(paginationArgs: PaginationArgs, facilitiesFilterInput: FacilityFilterRequestDto): [Facility!]!
+    findOne(id: ID!): Facility!
+    findOwnerFacilities(paginationArgs: PaginationArgs): [Facility!]!
+    getUserFavorites(paginationArgs: PaginationArgs) : [Facility!]!
+
 }
 
 # models
@@ -83,6 +91,11 @@ input UpdateProfileRequestDto {
     fullName: String
 }
 
+type UpdateFacilityImageDto {
+    facilityImage: FacilityImage!
+}
+
+
 input CreateFacilityRequestDto {
     name: String!
     sportType: [SportType!]!
@@ -104,6 +117,17 @@ input UpdateFacilityRequestDto {
     address: String
     minBookingTime: Int
     description: String
+}
+
+input PaginationArgs {
+    size: Int!
+    page: Int!
+}
+
+input FacilityFilterRequestDto {
+    sportType: [SportType]
+    facilityType: FacilityType
+    coveringType: CoveringType
 }
 
 type CreateFacilityResponseDto {

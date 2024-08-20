@@ -1,4 +1,4 @@
-package com.application.sportbooking.dto.user.login;
+package com.application.sportbooking.dto.auth.login;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;

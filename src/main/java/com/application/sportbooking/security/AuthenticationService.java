@@ -1,7 +1,7 @@
 package com.application.sportbooking.security;
 
-import com.application.sportbooking.dto.user.login.UserLoginRequestDto;
-import com.application.sportbooking.dto.user.login.UserLoginResponseDto;
+import com.application.sportbooking.dto.auth.login.UserLoginRequestDto;
+import com.application.sportbooking.dto.auth.login.UserLoginResponseDto;
 import com.application.sportbooking.exception.UnauthorizedException;
 import com.application.sportbooking.model.User;
 import com.application.sportbooking.repository.user.UserRepository;
@@ -28,6 +28,7 @@ public class AuthenticationService {
             );
 
             String generatedToken = jwtUtil.generateToken(authentication.getName());
+
             User user = userRepository.findByEmail(requestDto.email())
                     .orElseThrow(() -> new UsernameNotFoundException(String
                             .format("Can't find user by email %s", requestDto.email()
