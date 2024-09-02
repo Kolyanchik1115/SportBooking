@@ -1,4 +1,4 @@
-package com.application.sportbooking.dto.user.registration;
+package com.application.sportbooking.dto.auth.registration;
 
 import com.application.sportbooking.model.User;
 

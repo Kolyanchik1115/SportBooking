@@ -1,8 +1,8 @@
 package com.application.sportbooking.mapper;
 
 import com.application.sportbooking.config.MapperConfig;
-import com.application.sportbooking.dto.user.registration.UserRegistrationRequestDto;
-import com.application.sportbooking.dto.user.registration.UserResponseDto;
+import com.application.sportbooking.dto.auth.registration.UserRegistrationRequestDto;
+import com.application.sportbooking.dto.auth.registration.UserResponseDto;
 import com.application.sportbooking.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

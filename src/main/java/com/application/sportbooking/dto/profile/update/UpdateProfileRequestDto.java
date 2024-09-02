@@ -1,4 +1,4 @@
-package com.application.sportbooking.dto.profile;
+package com.application.sportbooking.dto.profile.update;
 
 import java.time.LocalDate;
 import lombok.Data;

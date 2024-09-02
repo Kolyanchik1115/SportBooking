@@ -1,9 +1,9 @@
 package com.application.sportbooking.controller;
 
-import com.application.sportbooking.dto.user.login.UserLoginRequestDto;
-import com.application.sportbooking.dto.user.login.UserLoginResponseDto;
-import com.application.sportbooking.dto.user.registration.UserRegistrationRequestDto;
-import com.application.sportbooking.dto.user.registration.UserResponseDto;
+import com.application.sportbooking.dto.auth.login.UserLoginRequestDto;
+import com.application.sportbooking.dto.auth.login.UserLoginResponseDto;
+import com.application.sportbooking.dto.auth.registration.UserRegistrationRequestDto;
+import com.application.sportbooking.dto.auth.registration.UserResponseDto;
 import com.application.sportbooking.exception.RegistrationException;
 import com.application.sportbooking.security.AuthenticationService;
 import com.application.sportbooking.service.user.UserService;
