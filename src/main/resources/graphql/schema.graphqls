@@ -3,14 +3,25 @@ type Mutation {
     login(loginInput: UserLoginRequestDto!): UserLoginResponseDto!
     register(registerInput: UserRegistrationRequestDto!): UserResponseDto!
     updateProfile(profileInput: UpdateProfileRequestDto!, avatar: Upload): User!
+    createFacility(facilityInput: CreateFacilityRequestDto!): CreateFacilityResponseDto!
+    updateFacility(facilityInput: UpdateFacilityRequestDto!): UpdateFacilityResponseDto!
+    deleteFacility(id: ID!): Boolean!
+    uploadFacilityImages(facilityId: ID!, images: [Upload]): [UpdateFacilityImageDto!]!
+    addFavorite(facilityId: ID!): Boolean!
+    removeFavorite(facilityId: ID!): Boolean!
 }
 
 #queries
 type Query {
     getProfile: User!
+    findAll(paginationArgs: PaginationArgs, facilitiesFilterInput: FacilityFilterRequestDto): [Facility!]!
+    findOne(id: ID!): Facility!
+    findOwnerFacilities(paginationArgs: PaginationArgs): [Facility!]!
+    getUserFavorites(paginationArgs: PaginationArgs) : [Facility!]!
+
 }
 
-#models
+# models
 type User {
     id: ID!
     email: String!
@@ -21,6 +32,31 @@ type User {
     avatar: String
     isActivated: Boolean!
     roles: [Role!]!
+    facilities: [Facility!]
+}
+
+type Facility {
+    id: ID!
+    name: String!
+    sportType: [String!]!
+    coveringType: String
+    facilityType: String
+    location: String
+    address: String!
+    minBookingTime: Int
+    avgPrice: Float
+    isWorking: Boolean
+    isRemoved: Boolean
+    description: String
+    facilityImages: [FacilityImage!]
+    user: User!
+}
+
+type FacilityImage {
+    id: ID!
+    image: String!
+    facility: Facility
+    isMain: Boolean
 }
 
 type Role {
@@ -55,9 +91,76 @@ input UpdateProfileRequestDto {
     fullName: String
 }
 
+type UpdateFacilityImageDto {
+    facilityImage: FacilityImage!
+}
+
+
+input CreateFacilityRequestDto {
+    name: String!
+    sportType: [SportType!]!
+    coveringType: CoveringType!
+    facilityType: FacilityType!
+    location: String
+    address: String!
+    minBookingTime: Int!
+    description: String
+}
+
+input UpdateFacilityRequestDto {
+    id: ID!
+    name: String
+    sportType: [SportType]
+    coveringType: CoveringType
+    facilityType: FacilityType
+    location: String
+    address: String
+    minBookingTime: Int
+    description: String
+}
+
+input PaginationArgs {
+    size: Int!
+    page: Int!
+}
+
+input FacilityFilterRequestDto {
+    sportType: [SportType]
+    facilityType: FacilityType
+    coveringType: CoveringType
+}
+
+type CreateFacilityResponseDto {
+    facility: Facility!
+}
+
+type UpdateFacilityResponseDto {
+    facility: Facility!
+}
+
 #enums
 enum RoleName {
     USER
     OWNER
     ADMIN
+}
+
+enum SportType {
+    basketball
+    soccer
+    tennis
+    volleyball
+}
+
+enum CoveringType {
+    artificial_lawn
+    natural_lawn
+    parquet
+    rubber
+    sand
+}
+
+enum FacilityType {
+    indoor
+    outdoor
 }
