@@ -1,4 +1,4 @@
-package com.application.sportbooking.dto.user.registration;
+package com.application.sportbooking.dto.auth.registration;
 
 import com.application.sportbooking.util.validation.FieldMatch;
 import jakarta.validation.constraints.Email;
